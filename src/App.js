@@ -1,13 +1,23 @@
 import './App.css';
-import register from './pages/register'
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "./LoginPage";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route exact path="/register" component={register}></Route>
-      </Routes>
+    <Router>
+    <Routes>
+      <Route exact path="/"/>
+      <Route path="/" element={<LoginPage />} />
+    </Routes>
+  </Router>
+  );
+}
+
+export default App;
+
+/*
+  <div className="App">
       <header className="App-header">
         <form  >
           <label>
@@ -22,12 +32,17 @@ function App() {
           </label>
           <input type="submit" value="Login" />
         </form>
-        <button>
-           Register
-        </button>
+        <Router>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        </Router>
+        <Routes>
+          <Route path="/register">
+            <Register />
+          </Route>
+        </Routes>
       </header>
     </div>
-  );
-}
 
-export default App;
+*/
